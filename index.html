@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>may-tinh-don-gian</title>
+    <style>
+        .monitor {
+            resize: none;
+            text-align: right;
+            border:1px solid black ;
+            color: blue;
+        }
+        .button {
+            color: blue;
+            width: 50px;
+            height: 30px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+<table>
+    <textarea class="monitor" cols="20" rows="2" id="monitor"></textarea>
+    <tr>
+        <td><input class="button" type="button" id="1"value="1"></td>
+        <td><input class="button" type="button" id="2"value="2"></td>
+        <td><input class="button" type="button" id="3"value="3"></td>
+        <td><input class="button" type="button" id="add"value="+"></td>
+    </tr>
+    <tr>
+        <td><input class="button" type="button" id="4"value="4"></td>
+        <td><input class="button" type="button" id="5"value="5"></td>
+        <td><input class="button" type="button" id="6"value="6"></td>
+        <td><input class="button" type="button" id="subtract"value="-"></td>
+    </tr>
+    <tr>
+        <td><input class="button" type="button" id="7"value="7"></td>
+        <td><input class="button" type="button" id="8"value="8"></td>
+        <td><input class="button" type="button" id="9"value="9"></td>
+        <td><input class="button" type="button" id="multiply"value="x"></td>
+    </tr>
+    <tr>
+        <td><input class="button" type="button" id="clear"value="C"></td>
+        <td><input class="button" type="button" id="0"value="0"></td>
+        <td><input class="button" type="button" id="calculator"value="="></td>
+        <td><input class="button" type="button" id="divide"value="/"></td>
+    </tr>
+</table>
+<script>
+    let bieuThuc = '';
+    let result;
+    let monitor = document.getElementById('monitor');
+    let button1 = document.getElementById('1');
+    let button2 = document.getElementById('2');
+    let button3 = document.getElementById('3');
+    let button4 = document.getElementById('4');
+    let button5 = document.getElementById('5');
+    let button6 = document.getElementById('6');
+    let button7 = document.getElementById('7');
+    let button8 = document.getElementById('8');
+    let button9 = document.getElementById('9');
+    let button0 = document.getElementById('0');
+    let buttonAdd = document.getElementById('add');
+    let buttonMultiply = document.getElementById('multiply');
+    let buttonSubtract = document.getElementById('subtract');
+    let buttonDivide = document.getElementById('divide');
+    let buttonClear = document.getElementById('clear');
+    let buttonCaCulator = document.getElementById('calculator');
+
+
+    button1.addEventListener('click', button1Clicked);
+    button2.addEventListener('click', button2Clicked);
+    button3.addEventListener('click', button3Clicked);
+    button4.addEventListener('click', button4Clicked);
+    button5.addEventListener('click', button5Clicked);
+    button6.addEventListener('click', button6Clicked);
+    button7.addEventListener('click', button7Clicked);
+    button8.addEventListener('click', button8Clicked);
+    button9.addEventListener('click', button9Clicked);
+    button0.addEventListener('click', button0Clicked);
+    buttonAdd.addEventListener('click', buttonAddClicked);
+    buttonSubtract.addEventListener('click', buttonSubtractlicked);
+    buttonMultiply.addEventListener('click', buttonMultiplyClicked);
+    buttonDivide.addEventListener('click', buttonDivideClicked);
+    buttonClear.addEventListener('click', buttonClearClicked);
+    buttonCaCulator.addEventListener('click', buttonCaCulatorClicked);
+
+    function congBieuThuc(noidung) {
+        bieuThuc += noidung;
+        display(bieuThuc);
+    }
+    function display(message){
+        monitor.value = message
+    }
+    function button1Clicked() {
+        congBieuThuc('1');
+    }
+    function button2Clicked() {
+        congBieuThuc('2');
+    }
+    function button3Clicked() {
+        congBieuThuc('3');
+    }
+    function button4Clicked() {
+        congBieuThuc('4');
+    }
+    function button5Clicked() {
+        congBieuThuc('5');
+    }
+    function button6Clicked() {
+        congBieuThuc('6');
+    }
+    function button7Clicked() {
+        congBieuThuc('7');
+    }
+    function button8Clicked() {
+        congBieuThuc('8');
+    }
+    function button9Clicked() {
+        congBieuThuc('9');
+    }
+    function button0Clicked() {
+        congBieuThuc('0');
+    }
+    function buttonAddClicked() {
+        congBieuThuc('+');
+    }
+    function buttonSubtractlicked() {
+        congBieuThuc('-');
+    }
+    function buttonMultiplyClicked() {
+        congBieuThuc('x');
+    }
+    function buttonDivideClicked() {
+        congBieuThuc('/');
+    }
+    function buttonClearClicked() {
+        bieuThuc = '';
+        display(bieuThuc);
+    }
+    function buttonCaCulatorClicked() {
+        let bieuThucMoi = bieuThuc.replaceAll('x','*');
+        result = eval(bieuThucMoi);
+        display(result);
+        bieuThuc = '';
+    }
+</script>
+</body>
+</html>
